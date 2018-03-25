@@ -1,26 +1,25 @@
 package SortAlgorithms;
 
-import java.util.Arrays;
-
-public class BubbleSort {
-
-	public static void main(String[] args) {
-		int [] arr = {8, 10, 4, 2, 6};
-		System.out.println(String.format("Array before Sorting = %s \n", Arrays.toString(arr)));
-		bubbleSort(arr);
-		System.out.println(String.format("Array after Sorting = %s \n", Arrays.toString(arr)));
-	}
+public class BubbleSort extends Sort {
 	
-	static void bubbleSort(int [] arr) {		
+	public void sort (int[] sortArray) {
+		super.sort(sortArray);
 		int bucket;
-		for(int i=0; i<arr.length -1; i++)
-			for(int j=0; j< arr.length - 1 - i; j++)
-			{
-				if(arr[j]>arr[j+1]) {
-					bucket = arr[j];
-					arr[j] = arr[j+1];
-					arr[j+1] = bucket;
+		for (int i = 0; i <sortArray.length -1 ; i++) {
+			for(int j = 0; j < sortArray.length -1 - i; j++) {
+				if(sortArray[j] > sortArray[j+1]) {
+					bucket = sortArray[j];
+					sortArray[j] = sortArray[j+1];
+					sortArray[j+1] = bucket;
 				}
 			}
+		}
+		
+		print(sortArray);
+	}
+	
+	void print(int arr[]) {
+		System.out.println("Array after sorting: [Bubble Sort]");
+		super.print(arr);
 	}
 }
